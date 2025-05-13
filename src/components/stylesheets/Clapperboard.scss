@@ -1,0 +1,54 @@
+.clapperboard-wrapper {
+  padding: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 18em;
+  flex-wrap: wrap;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20em;
+    margin-bottom: 18em;
+    gap: 2em;
+  }
+}
+
+.clapper-section,
+.splash-section {
+  max-width: 20em;
+  text-align: center;
+  font-family: 'Italiana', serif;
+  font-size: 0.8em;
+}
+
+.clapper-image,
+.splash-section .splash-img {
+  /* ensure both image wrappers match */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.clapper-img {
+  width: 12em;
+  /* fixed width keeps layout stable */
+  height: auto;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.splash-img {
+  width: 15em;
+  height: auto;
+  border-radius: 0.5em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.clapper-text {
+  margin: 0;
+  line-height: 1.4;
+  color: white;
+}

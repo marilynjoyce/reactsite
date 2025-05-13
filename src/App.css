@@ -1,20 +1,42 @@
-.App {
-  text-align: center;
+html,
+body {
+  margin: 0;
+  scroll-behavior: smooth;
+  padding: 0;
+  background-color: #31312e;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App {
+  text-align: center;
+  width: 100%;
+}
+
+#basketball-ball {
+  position: fixed;
+  top: 25%;
+  height: 14em;
+  z-index: 0;
+}
+
+.basketball-container {
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .basketball-ball.active {
+    animation: ball-spin infinite 10s linear;
   }
 }
 
 .App-header {
-  background-color: #282c34;
+  width: 100%;
+  background-color: #31312e;
+  ;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,17 +44,129 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  overflow: hidden;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+@keyframes ball-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+.scroll-down {
+  position: absolute;
+  height: 50px;
+  width: 80px;
+  border: 3px solid white;
+  bottom: 20px;
+  border-radius: 30px;
+}
+
+.scroll-down::before,
+.scroll-down::after {
+  content: '';
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  border: 3px solid white;
+  bottom: 20px;
+  transform: translate(-50%, -60%) rotate(45deg);
+  border-top: transparent;
+  border-left: transparent;
+  animation: scroll-down 1s ease-in-out infinite;
+}
+
+.scroll-down::after {
+  animation-delay: .3s;
+}
+
+@keyframes scroll-down {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    top: 60%;
+  }
+}
+
+.name-container {
+  margin-top: 20em;
+}
+
+.name-top {
+  position: fixed;
+  top: 1rem;
+  left: 4rem;
+  z-index: 1000;
+  letter-spacing: 2px;
+  font-family: 'Italiana';
+}
+
+.dog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 7.8em;
+  z-index: 1000;
+}
+
+.name-top h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  text-shadow:
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
+}
+
+.Typewriter__wrapper {
+  text-decoration: none;
+  color: white;
+  font-weight: 300;
+  font-size: 2em;
+  font-family: 'Italiana';
+  letter-spacing: 0.05em;
+}
+
+.Typewriter__cursor {
+  text-decoration: none;
+  animation: Typewriter-cursor 1s infinite;
+  margin-left: 1px;
+  font-size: 1.5em;
+}
+
+/* .typewriter-container {
+  margin-top: 50em;
+} */
+
+.typewriter-last {
+  margin-top: 10em;
+}
+
+@media (max-width: 768px) {
+  .name-container {
+    margin-top: 22em;
   }
 }
