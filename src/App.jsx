@@ -50,9 +50,9 @@ function App() {
 
   let rimTop3;
   if (isMobilePortrait) {
-    rimTop3 = '318em';
+    rimTop3 = '311em';
   } else {
-    rimTop3 = '146em'; // Default value
+    rimTop3 = '146em';
   }
 
   return (
@@ -60,9 +60,11 @@ function App() {
       <div className='App-header' id='home'>
         <Navbar />
         <div className={scrolled ? '' : 'scroll-down'} />
-        <div style={{ position: 'absolute', left: 100, top: '3em', padding: '10px' }}>
-          <img src={profile} width={300} />
-        </div>
+        {!isMobilePortrait && (
+          <div style={{ position: 'absolute', left: 100, top: '3em', padding: '10px' }}>
+            <img src={profile} width={300} />
+          </div>
+        )}
         <div className='basketball-container'>
           <img
             src={Basketball}
@@ -94,7 +96,7 @@ function App() {
         <PhotoHoop
           rimTop={rimTop2}
         />
-        <div className='dog'><img src={grad} width={450} /> </div>
+        <div className='dog'><img src={grad} width={isMobilePortrait ? 340 : 450} /> </div>
         <PhotoHoop rimTop={rimTop3} />
         <div className='typewriter-last'>
           <Typewriter
@@ -109,7 +111,7 @@ function App() {
         </div>
         <Footer />
       </div>
-    </div>
+    </div >
   );
 }
 
