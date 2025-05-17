@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import grad from './assets/grad.png';
 import { useMediaQuery } from 'react-responsive';
+import profile from './assets/grad.JPG';
 import './App.css';
 
 function App() {
@@ -59,6 +60,9 @@ function App() {
       <div className='App-header' id='home'>
         <Navbar />
         <div className={scrolled ? '' : 'scroll-down'} />
+        <div style={{ position: 'absolute', left: 100, top: '3em', padding: '10px' }}>
+          <img src={profile} width={300} />
+        </div>
         <div className='basketball-container'>
           <img
             src={Basketball}
@@ -90,7 +94,7 @@ function App() {
         <PhotoHoop
           rimTop={rimTop2}
         />
-        <div className='dog'><img src={grad} width={500} /> </div>
+        <div className='dog'><img src={grad} width={450} /> </div>
         <PhotoHoop rimTop={rimTop3} />
         <div className='typewriter-last'>
           <Typewriter
